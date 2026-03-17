@@ -1,4 +1,4 @@
-const API = 'https://localhost:7298/api';
+const API = 'http://localhost:7298/api';
 
 function showTab(tab) {
     document.getElementById('login').classList.add('hidden');
@@ -12,18 +12,23 @@ async function login() {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
 
-    const res = await fetch(`${API}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-    });
+    try {
+        const res = await fetch(`${API}/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
 
-    if (res.ok) {
-        const data = await res.json();
-        localStorage.setItem('token', data.token);
-        window.location.href = 'dashboard.html';
-    } else {
-        document.getElementById('login-error').textContent = 'Ongeldige inloggegevens.';
+        if (res.ok) {
+            const data = await res.json();
+            localStorage.setItem('token', data.token);
+            window.location.href = 'dashboard.html';
+        } else {
+            document.getElementById('login-error').textContent = 'Ongeldige inloggegevens.';
+        }
+    } catch (err) {
+        document.getElementById('login-error').textContent = 'Kan geen verbinding maken met de API. Is de server gestart?';
+        console.error(err);
     }
 }
 

@@ -1,4 +1,4 @@
-const API = 'https://localhost:7298/api';
+const API = 'http://localhost:7298/api';
 const token = localStorage.getItem('token');
 if (!token) window.location.href = 'index.html';
 
