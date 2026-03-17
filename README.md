@@ -2,8 +2,6 @@
 
 Een full-stack webapplicatie om persoonlijke inkomsten en uitgaven bij te houden.
 
-![Dashboard](BudgetTracker.API/wwwroot/screenshot.png)
-
 ## Technologieën
 
 - **Backend:** ASP.NET Core 10 (C#)
