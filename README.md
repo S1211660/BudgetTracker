@@ -32,7 +32,7 @@ Een full-stack webapplicatie om persoonlijke inkomsten en uitgaven bij te houden
 
 1. Clone de repository
 ```bash
-   git clone https://github.com/JOUWGEBRUIKERSNAAM/budget-tracker.git
+   git clone https://github.com/s1211660/budget-tracker.git
    cd budget-tracker
 ```
 
