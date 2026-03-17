@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker — Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="dashboard-page">
+    <nav>
+        <h2>💰 Budget Tracker</h2>
+        <div>
+            <span id="nav-username"></span>
+            <button onclick="logout()">Uitloggen</button>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Samenvatting -->
+        <div class="summary-cards">
+            <div class="card income">
+                <h3>Inkomsten</h3>
+                <p id="total-income">€0,00</p>
+            </div>
+            <div class="card expense">
+                <h3>Uitgaven</h3>
+                <p id="total-expense">€0,00</p>
+            </div>
+            <div class="card balance">
+                <h3>Saldo</h3>
+                <p id="total-balance">€0,00</p>
+            </div>
+        </div>
+
+        <!-- Maand selectie -->
+        <div class="month-selector">
+            <button onclick="changeMonth(-1)">◀</button>
+            <span id="current-month"></span>
+            <button onclick="changeMonth(1)">▶</button>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Grafiek -->
+            <div class="chart-box">
+                <h3>Per categorie</h3>
+                <canvas id="categoryChart"></canvas>
+            </div>
+
+            <!-- Transacties toevoegen -->
+            <div class="form-panel">
+                <h3>Transactie toevoegen</h3>
+                <select id="t-category"></select>
+                <input type="number" id="t-amount" placeholder="Bedrag (€)" step="0.01" />
+                <input type="text" id="t-description" placeholder="Omschrijving" />
+                <input type="date" id="t-date" />
+                <button onclick="addTransaction()">Toevoegen</button>
+                <p id="t-error" class="error"></p>
+
+                <h3 style="margin-top: 24px;">Categorie toevoegen</h3>
+                <input type="text" id="c-name" placeholder="Naam" />
+                <select id="c-type">
+                    <option value="income">Inkomsten</option>
+                    <option value="expense">Uitgaven</option>
+                </select>
+                <button onclick="addCategory()">Toevoegen</button>
+                <p id="c-error" class="error"></p>
+            </div>
+        </div>
+
+        <!-- Transacties lijst -->
+        <div class="transactions-box">
+            <h3>Transacties</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Omschrijving</th>
+                        <th>Categorie</th>
+                        <th>Bedrag</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="transactions-list"></tbody>
+            </table>
+        </div>
+
+    </div>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

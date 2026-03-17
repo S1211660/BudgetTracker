@@ -1,6 +1,4 @@
-﻿using System.Transactions;
-
-namespace BudgetTracker.Core.Models
+﻿namespace BudgetTracker.Core.Models
 {
     public class Category
     {

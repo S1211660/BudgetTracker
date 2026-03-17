@@ -43,6 +43,8 @@ var app = builder.Build();
 
 app.MapOpenApi();
 app.MapScalarApiReference();
+app.UseDefaultFiles();
+app.UseStaticFiles();
 app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
